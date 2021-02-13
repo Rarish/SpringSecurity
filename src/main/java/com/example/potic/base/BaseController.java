@@ -1,4 +1,4 @@
-package com.example.potic.rbac.controller;
+package com.example.potic.base;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.potic.result.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.example.potic.rbac.service.impl;
+package com.example.potic.security.authentication;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.potic.exception.CustomException;

@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.example.potic.rbac")
+@MapperScan("com.example.potic.rbac.mapper")
 public class OneApplication {
 
 	public static void main(String[] args) {

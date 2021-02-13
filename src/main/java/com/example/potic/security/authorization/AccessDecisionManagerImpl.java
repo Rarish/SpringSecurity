@@ -1,4 +1,4 @@
-package com.example.potic.security;
+package com.example.potic.security.authorization;
 
 import com.example.potic.exception.CustomException;
 import org.springframework.security.access.AccessDecisionManager;
@@ -13,7 +13,15 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 import java.util.Iterator;
 
-@Component
+/**
+ * AccessDecisionManager 授权决策管理器
+ * <p>
+ * 主体的权限保存到 Authentication 里
+ * Authentication 对象保存在一个 GrantedAuthority 的对象数组中。
+ * AccessDecisionManager 遍历数组进行授权判断。
+ * AccessDecisionManager 被 AbstractSecurityInterceptor 调用，作最终访问控制的决定
+ */
+@Component("accessDecisionManagerImpl")
 public class AccessDecisionManagerImpl implements AccessDecisionManager {
     /**
      * 权限鉴定

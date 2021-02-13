@@ -29,7 +29,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Override
     public Set<String> getResourcesByUID(Integer uid) {
         Set<String> resources = new HashSet<>();
-        for(SysUserRole userRole: userRoleService.list(new QueryWrapper<SysUserRole>().eq("userId",uid))){
+        for(SysUserRole userRole: userRoleService.list(new QueryWrapper<SysUserRole>().eq("user_id",uid))){
             resources.add(this.getById(userRole.getRoleId()).getName());
         }
         return resources;

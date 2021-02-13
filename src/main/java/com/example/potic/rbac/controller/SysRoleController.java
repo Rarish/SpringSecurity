@@ -2,9 +2,9 @@ package com.example.potic.rbac.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.potic.base.BaseController;
 import com.example.potic.rbac.entity.SysRole;
 import com.example.potic.rbac.entity.SysRoleResources;
-import com.example.potic.rbac.entity.SysUserRole;
 import com.example.potic.rbac.service.SysRoleResourcesService;
 import com.example.potic.rbac.service.impl.SysRoleServiceImpl;
 import com.example.potic.result.ResponseEntity;

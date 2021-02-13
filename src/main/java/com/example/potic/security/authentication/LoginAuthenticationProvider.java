@@ -1,7 +1,6 @@
-package com.example.potic.security;
+package com.example.potic.security.authentication;
 
 import com.example.potic.exception.CustomException;
-import com.example.potic.rbac.service.impl.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,6 +33,6 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return false;
+        return true;
     }
 }

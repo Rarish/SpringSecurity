@@ -1,6 +1,7 @@
 package com.example.potic.rbac.controller;
 
 
+import com.example.potic.base.BaseController;
 import com.example.potic.rbac.entity.SysRoleResources;
 import com.example.potic.rbac.service.impl.SysRoleResourcesServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;

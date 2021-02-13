@@ -3,6 +3,7 @@ package com.example.potic.rbac.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.potic.base.BaseController;
 import com.example.potic.rbac.entity.SysUser;
 import com.example.potic.rbac.entity.SysUserRole;
 import com.example.potic.rbac.service.SysUserRoleService;

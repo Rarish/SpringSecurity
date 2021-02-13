@@ -1,6 +1,8 @@
 package com.example.potic.rbac.controller;
 
 
+import com.example.potic.rbac.entity.SysUserRole;
+import com.example.potic.rbac.service.impl.SysUserRoleServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-02-05
  */
 @RestController
-@RequestMapping("/sys-user-role")
-public class SysUserRoleController {
+@RequestMapping("/rbac/sys-user-role")
+public class SysUserRoleController extends BaseController<SysUserRoleServiceImpl, SysUserRole> {
 
 }
 

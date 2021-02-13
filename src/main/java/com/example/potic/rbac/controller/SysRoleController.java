@@ -1,8 +1,18 @@
 package com.example.potic.rbac.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.potic.rbac.entity.SysRole;
+import com.example.potic.rbac.entity.SysRoleResources;
+import com.example.potic.rbac.entity.SysUserRole;
+import com.example.potic.rbac.service.SysRoleResourcesService;
+import com.example.potic.rbac.service.impl.SysRoleServiceImpl;
+import com.example.potic.result.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,8 +23,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-02-05
  */
 @RestController
-@RequestMapping("/sys-role")
-public class SysRoleController {
+@RequestMapping("/rbac/sys-role")
+public class SysRoleController extends BaseController<SysRoleServiceImpl, SysRole> {
+    @Autowired
+    private SysRoleResourcesService roleResourcesService;
 
+    @Override
+    public ResponseEntity deleteByIds(List<Integer> ids) {
+        for(Integer id : ids){
+            roleResourcesService.remove(new QueryWrapper<SysRoleResources>().eq("roleId",id));
+        }
+        return super.deleteByIds(ids);
+    }
 }
 

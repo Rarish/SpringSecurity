@@ -1,8 +1,8 @@
 package com.example.potic.config;
 
-import com.example.potic.security.authentication.CustomUserDetailsService;
+import com.example.potic.security.authentication.*;
 import com.example.potic.security.authorization.AuthorizeSecurityInterceptor;
-import com.example.potic.security.authentication.LoginAuthenticationProvider;
+import com.example.potic.security.authorization.CustomAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private LoginAuthenticationProvider loginAuthenticationProvider;
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
+    @Autowired
+    private LoginSuccessHandler loginSuccessHandler;
+    @Autowired
+    private LoginFailureHandler loginFailureHandler;
+    @Autowired
+    private LoginOutSuccessHandler loginOutSuccessHandler;
+    @Autowired
+    private CustomAccessDeniedHandler customAccessDeniedHandler;
 
     //要求必须有一个这个实列
     @Bean
@@ -42,13 +50,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login","/signIn").permitAll() //这两个url允许任意访问
                 .anyRequest().authenticated()  //其余所有皆需要认证
             .and()
-                .logout().permitAll()
+                .logout()
+                .logoutSuccessHandler(loginOutSuccessHandler)
+                .permitAll()
             .and()
                 .httpBasic()
             .and()
                 .formLogin()
-                .loginProcessingUrl("/loginSys")
-                .permitAll()//支持表单登录
+                .loginProcessingUrl("/login") //用于指定前后端分离的时候调用后台登录接口的名称
+                .successHandler(loginSuccessHandler)
+                .failureHandler(loginFailureHandler)
+            .and()
+                .exceptionHandling().accessDeniedHandler(customAccessDeniedHandler) //配置无授权的处理器
             .and()
                 .csrf().disable()
             .addFilterAt(new AuthorizeSecurityInterceptor(), FilterSecurityInterceptor.class);

@@ -2,9 +2,9 @@ package com.example.potic.security.authentication;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.potic.exception.CustomException;
-import com.example.potic.rbac.entity.SysUser;
-import com.example.potic.rbac.service.SysRoleService;
-import com.example.potic.rbac.service.SysUserService;
+import com.example.potic.security.rbac.entity.SysUser;
+import com.example.potic.security.rbac.service.SysRoleService;
+import com.example.potic.security.rbac.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

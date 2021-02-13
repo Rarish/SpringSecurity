@@ -1,11 +1,11 @@
 package com.example.potic.security.authorization;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.potic.rbac.entity.SysResources;
-import com.example.potic.rbac.entity.SysRoleResources;
-import com.example.potic.rbac.service.SysResourcesService;
-import com.example.potic.rbac.service.SysRoleResourcesService;
-import com.example.potic.rbac.service.SysRoleService;
+import com.example.potic.security.rbac.entity.SysResources;
+import com.example.potic.security.rbac.entity.SysRoleResources;
+import com.example.potic.security.rbac.service.SysResourcesService;
+import com.example.potic.security.rbac.service.SysRoleResourcesService;
+import com.example.potic.security.rbac.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;

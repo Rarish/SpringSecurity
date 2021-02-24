@@ -13,6 +13,10 @@ public class ResponseMessage {
         return new ResponseEntity(1,message,data);
     }
 
+    public static ResponseEntity success(Object data){
+        return new ResponseEntity(data);
+    }
+
     public static ResponseEntity fail(){
         return new ResponseEntity(0,"fail",null);
     }
